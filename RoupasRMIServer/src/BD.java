@@ -12,7 +12,7 @@ public class BD {
 		Roupa roupa3 = new Roupa("Camisa musculação", "Esportivo", 30);
 
 		loja1.adicionarRoupa(roupa1);
-		loja1.adicionarRoupa(roupa3);
+		loja1.adicionarRoupa(roupa2);
 		loja1.adicionarRoupa(roupa3);
 	}
 
