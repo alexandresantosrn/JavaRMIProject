@@ -14,7 +14,7 @@ public class Main {
 		AluguelRoupasService client = (AluguelRoupasService) registry.lookup("Roupas");
 
 		int option = 100;
-		String inicio, fim;
+		String inicio, fim, saida;
 
 		try (Scanner in = new Scanner(System.in)) {
 			while (option != 0) {
@@ -30,16 +30,24 @@ public class Main {
 				switch (option) {
 
 				case 1:
-					//inicio = carregarQuestoes("início");
-					//fim = carregarQuestoes("fim");
-					String saida = client.findRoupasDisponiveis("Teste");
+					inicio = carregarQuestoes("início");
+					fim = carregarQuestoes("fim");
+					saida = client.findRoupasDisponiveis("Esportivo", inicio, fim);
 					System.out.println(saida);
 					break;
 
 				case 2:
+					inicio = carregarQuestoes("início");
+					fim = carregarQuestoes("fim");
+					saida = client.findRoupasDisponiveis("Tradicional", inicio, fim);
+					System.out.println(saida);
 					break;
 
 				case 3:
+					inicio = carregarQuestoes("início");
+					fim = carregarQuestoes("fim");
+					saida = client.findRoupasDisponiveis("Festa", inicio, fim);
+					System.out.println(saida);
 					break;
 
 				default:
@@ -54,9 +62,8 @@ public class Main {
 	public static String carregarQuestoes(String tipo) {
 		Scanner in2 = new Scanner(System.in);
 		String date="";
-		System.out.print("Informe a data " + tipo + " para o aluguel:");
-		date = in2.nextLine();
-		System.out.println("\n");
+		System.out.print("Informe a data " + tipo + " para o aluguel: ");
+		date = in2.nextLine();		
 		return date;
 	}
 
