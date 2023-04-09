@@ -5,6 +5,13 @@ public class Roupa {
 	String estilo;
 	float preco;
 
+	public Roupa(String nome, String estilo, float preco) {
+		super();
+		this.nome = nome;
+		this.estilo = estilo;
+		this.preco = preco;
+	}
+
 	public String getNome() {
 		return nome;
 	}
