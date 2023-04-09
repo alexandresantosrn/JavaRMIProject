@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Loja {
 
 	String nome;
-	public ArrayList<Roupa> roupas;
+	public ArrayList<Roupa> roupas = new ArrayList<Roupa>();
 
 	public Loja(String nome) {
 		super();
