@@ -14,8 +14,13 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 
 	@Override
 	public String findRoupasDisponiveis(String estilo) throws RemoteException {		
-		String msg = "Que alegria!!";
+		String msg = carregarItens(estilo);
 		return msg;
+	}
+	
+	public String carregarItens(String estilo) {
+		
+		return "xabu";
 	}
 
 	

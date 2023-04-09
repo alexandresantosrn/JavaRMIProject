@@ -14,6 +14,7 @@ public class Main {
 		AluguelRoupasService client = (AluguelRoupasService) registry.lookup("Roupas");
 
 		int option = 100;
+		String inicio, fim;
 
 		try (Scanner in = new Scanner(System.in)) {
 			while (option != 0) {
@@ -29,6 +30,8 @@ public class Main {
 				switch (option) {
 
 				case 1:
+					inicio = carregarQuestoes("início");
+					fim = carregarQuestoes("fim");
 					String saida = client.findRoupasDisponiveis("Teste");
 					System.out.println(saida);
 					break;
@@ -46,6 +49,12 @@ public class Main {
 		}
 
 		System.out.println(" \n" + "Até logo!!");
+	}
+	
+	public static String carregarQuestoes(String tipo) {
+		String date="";
+		System.out.print("Informe a data " + tipo + " para o aluguel:");
+		return date;
 	}
 
 }
