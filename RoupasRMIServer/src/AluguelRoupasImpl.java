@@ -7,7 +7,7 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 
 	protected AluguelRoupasImpl() throws RemoteException {
 		super();	
-		BD.carregarDados();
+		//BD.carregarDados();
 	}
 
 	private static final long serialVersionUID = 1L;
@@ -40,6 +40,7 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 		roupas = rp.retornarRoupasByEstilo(estilo);
 		
 		String x = roupas.get(0).getNome();
+		
 		return x;
 	}
 

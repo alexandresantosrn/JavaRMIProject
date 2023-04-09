@@ -30,8 +30,8 @@ public class Main {
 				switch (option) {
 
 				case 1:
-					inicio = carregarQuestoes("início");
-					fim = carregarQuestoes("fim");
+					//inicio = carregarQuestoes("início");
+					//fim = carregarQuestoes("fim");
 					String saida = client.findRoupasDisponiveis("Teste");
 					System.out.println(saida);
 					break;
