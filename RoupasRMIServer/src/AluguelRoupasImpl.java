@@ -11,9 +11,10 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public String findRoupasDisponiveis(String estilo, Date inicioAluguel, Date fimAluguel) throws RemoteException {
+	public String findRoupasDisponiveis(String estilo) throws RemoteException {
 		// TODO Auto-generated method stub
-		return null;
+		String msg = "Que alegria!!";
+		return msg;
 	}
 
 	

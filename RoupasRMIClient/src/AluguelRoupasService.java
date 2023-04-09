@@ -4,6 +4,6 @@ import java.util.Date;
 
 public interface AluguelRoupasService extends Remote {
 
-	String findRoupasDisponiveis(String estilo, Date inicioAluguel, Date fimAluguel) throws RemoteException;
+	String findRoupasDisponiveis(String estilo) throws RemoteException;
 
 }
