@@ -3,6 +3,11 @@ public class Loja {
 
 	String nome;
 
+	public Loja(String nome) {
+		super();
+		this.nome = nome;
+	}
+
 	public String getNome() {
 		return nome;
 	}

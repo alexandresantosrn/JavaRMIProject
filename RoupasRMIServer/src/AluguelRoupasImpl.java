@@ -5,7 +5,9 @@ import java.util.Date;
 public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRoupasService{
 
 	protected AluguelRoupasImpl() throws RemoteException {
-		super();		
+		super();	
+		BD bd = new BD();
+		bd.carregarDados();
 	}
 
 	private static final long serialVersionUID = 1L;
