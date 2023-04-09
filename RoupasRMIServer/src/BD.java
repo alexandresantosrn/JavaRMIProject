@@ -1,8 +1,9 @@
 
 public class BD {
 
-	public void carregarDados() {
+	public static void carregarDados() {
 
+		RepositoryRoupas rp = new RepositoryRoupas();
 		Loja loja1 = new Loja("Sports Center");
 		Loja loja2 = new Loja("Ponto Xique");
 		Loja loja3 = new Loja("Natal Rigor");
@@ -14,6 +15,9 @@ public class BD {
 		loja1.adicionarRoupa(roupa1);
 		loja1.adicionarRoupa(roupa2);
 		loja1.adicionarRoupa(roupa3);
+		rp.adicionarRoupa(roupa1);
+		rp.adicionarRoupa(roupa2);
+		rp.adicionarRoupa(roupa3);		
 	}
 
 }

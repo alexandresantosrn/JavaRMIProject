@@ -52,8 +52,11 @@ public class Main {
 	}
 	
 	public static String carregarQuestoes(String tipo) {
+		Scanner in2 = new Scanner(System.in);
 		String date="";
 		System.out.print("Informe a data " + tipo + " para o aluguel:");
+		date = in2.nextLine();
+		System.out.println("\n");
 		return date;
 	}
 
