@@ -10,7 +10,7 @@ public class Main {
 
 		Registry registry = LocateRegistry.createRegistry(1099);
 		AluguelRoupasService server = new AluguelRoupasImpl();
-		registry.bind("Roupas", (Remote) server);
+		registry.rebind("Roupas", (Remote) server);
 		System.out.println("Servidor RMI pronto!");
 	}
 
