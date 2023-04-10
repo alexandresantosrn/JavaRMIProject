@@ -3,23 +3,23 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRoupasService{
+public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRoupasService {
 
 	protected AluguelRoupasImpl() throws RemoteException {
-		super();	
-		//BD.carregarDados();
+		super();
+		// BD.carregarDados();
 	}
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public String findRoupasDisponiveis(String estilo, String inicio, String fim) throws RemoteException {		
+	public String findRoupasDisponiveis(String estilo, String inicio, String fim) throws RemoteException {
 		String msg = carregarItens(estilo);
 		return msg;
 	}
-	
+
 	public String carregarItens(String estilo) {
-		
+
 		RepositoryRoupas rp = new RepositoryRoupas();
 		Loja loja1 = new Loja("Sports Center");
 		Loja loja2 = new Loja("Ponto Xique");
@@ -34,15 +34,24 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 		loja1.adicionarRoupa(roupa3);
 		rp.adicionarRoupa(roupa1);
 		rp.adicionarRoupa(roupa2);
-		rp.adicionarRoupa(roupa3);	
-		
+		rp.adicionarRoupa(roupa3);
+		rp.adicionarLoja(loja1);
+		rp.adicionarLoja(loja2);
+		rp.adicionarLoja(loja3);
+
 		ArrayList<Roupa> roupas = new ArrayList<>();
 		roupas = rp.retornarRoupasByEstilo(estilo);
-		
+
+		System.out.println("Seguem as roupas encontradas para o estilo selecionado: " + estilo);
+
+		for (int i = 0; i <= roupas.size(); i++) {
+			System.out.println("Produto: " + roupas.get(i).getNome() + "de: " + roupas.get(i).getPreco()
+					+ "localizado na loja: " + rp.retornarLojaByRoupa(roupas.get(i)));
+		}
+
 		String x = roupas.get(0).getNome();
-		
+
 		return x;
 	}
 
-	
 }
