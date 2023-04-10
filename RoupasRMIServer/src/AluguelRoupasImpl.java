@@ -45,22 +45,20 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 		ArrayList<Loja> lojas = new ArrayList<>();
 		lojas = rp.getLojas();
 
+		String msg = "";
+
 		System.out.println("Seguem as roupas encontradas para o estilo selecionado: " + estilo + ".");
 
-		for (int i = 0; i <= lojas.size(); i++) {
-
-			for (int j = 0; j <= roupas.size(); j++) {
-
-				if (lojas.get(i).checkRoupaEmLoja(roupas.get(i))) {
-					System.out.println("Produto: " + roupas.get(i).getNome() + "de: " + roupas.get(i).getPreco()
-							+ "localizado na loja: " + rp.retornarLojaByRoupa(roupas.get(i)));
+		for (Loja loja : lojas) {
+			for (Roupa roupa : roupas) {
+				if (loja.checkRoupaEmLoja(roupa)) {
+					msg = msg + "Produto: " + roupa.getNome() + " de: " + roupa.getPreco() + " reais, localizado na loja: "
+							+ loja.getNome() + "\n";
 				}
 			}
 		}
 
-		String x = roupas.get(0).getNome();
-
-		return x;
+		return msg;
 	}
 
 }
