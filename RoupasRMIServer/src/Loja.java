@@ -30,4 +30,15 @@ public class Loja {
 		roupas.add(roupa);
 	}
 
+	public boolean checkRoupaEmLoja(Roupa roupa) {
+
+		boolean b = false;
+		
+		if (roupas.contains(roupa)) {
+			b = true;
+		}
+		
+		return b;
+	}
+
 }
