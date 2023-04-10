@@ -6,8 +6,7 @@ import java.util.Date;
 public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRoupasService {
 
 	protected AluguelRoupasImpl() throws RemoteException {
-		super();
-		// BD.carregarDados();
+		super();		
 	}
 
 	private static final long serialVersionUID = 1L;
@@ -45,9 +44,7 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 		ArrayList<Loja> lojas = new ArrayList<>();
 		lojas = rp.getLojas();
 
-		String msg = "";
-
-		System.out.println("Seguem as roupas encontradas para o estilo selecionado: " + estilo + ".");
+		String msg = "Seguem as roupas encontradas para o estilo selecionado: " + estilo + ": \n";
 
 		for (Loja loja : lojas) {
 			for (Roupa roupa : roupas) {
