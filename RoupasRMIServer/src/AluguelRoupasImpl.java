@@ -85,12 +85,12 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 		ArrayList<Aluguel> alugueis = new ArrayList<>();
 		alugueis = rp.getAlugueis();
 
+		// Percorrendo as listas para identificar as roupas alugadas.
 		for (Aluguel aluguel : alugueis) {
 			for (Roupa roupa : roupas) {
 				if (aluguel.getRoupa().equals(roupa)) {
 					if (!(aluguel.getInicio().isAfter(fim) || aluguel.getFim().isBefore(inicio))) {
 						roupa.setAlugado(true);
-						System.out.println(roupa.getNome());
 					}
 
 				}
@@ -102,8 +102,15 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 		for (Loja loja : lojas) {
 			for (Roupa roupa : roupas) {
 				if (loja.checkRoupaEmLoja(roupa)) {
-					msg = msg + "Produto: " + roupa.getNome() + " de: " + roupa.getPreco()
-							+ " reais, localizado na loja: " + loja.getNome() + "." + "\n";
+					if (!roupa.isAlugado()) {
+						msg = msg + "Produto: " + roupa.getNome() + " de preço (diária): " + roupa.getPreco()
+								+ " reais, localizado na loja: " + loja.getNome() + "." + "\n";
+					} else {
+						msg = msg + "Produto: " + roupa.getNome() + " de preço (diária): " + roupa.getPreco()
+								+ " reais, localizado na loja: " + loja.getNome()
+								+ ". (Roupa alugada no período. Indisponível para locação)" + "\n";
+					}
+
 				}
 			}
 		}
