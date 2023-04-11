@@ -10,7 +10,7 @@ public class Main {
 
 	public static void main(String[] args) throws RemoteException, NotBoundException {
 
-		// Registry registry = LocateRegistry.getRegistry("localhost");
+//		 Registry registry = LocateRegistry.getRegistry("localhost");
 		Registry registry = LocateRegistry.getRegistry("192.168.2.115");
 		AluguelRoupasService client = (AluguelRoupasService) registry.lookup("Roupas");
 		LocalDate start, end;
