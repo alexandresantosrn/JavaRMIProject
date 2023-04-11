@@ -22,7 +22,7 @@ public class Main {
 			while (option != 0) {
 
 				System.out.println("Caro cliente, informe a opção desejada para aluguel:");
-				System.out.println("1 - Aluguel de roupas esportivas");
+				System.out.println("1 - Aluguel de roupas esportivas.");
 				System.out.println("2 - Aluguel de roupas tradicionais.");
 				System.out.println("3 - Aluguel de roupas para festas.");
 				System.out.println("0 - Sair.");
