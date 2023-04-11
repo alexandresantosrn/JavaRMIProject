@@ -82,7 +82,7 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 		ArrayList<Loja> lojas = new ArrayList<>();
 		lojas = rp.getLojas();
 
-		String msg = "Seguem as roupas encontradas para o estilo selecionado: " + estilo + ": \n";
+		String msg = "Seguem as roupas encontradas para o estilo selecionado: " + estilo + ". \n";
 
 		for (Loja loja : lojas) {
 			for (Roupa roupa : roupas) {
