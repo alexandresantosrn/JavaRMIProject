@@ -76,7 +76,7 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 			for (Roupa roupa : roupas) {
 				if (loja.checkRoupaEmLoja(roupa)) {
 					msg = msg + "Produto: " + roupa.getNome() + " de: " + roupa.getPreco()
-							+ ".00 reais, localizado na loja: " + loja.getNome() + "\n";
+							+ " reais, localizado na loja: " + loja.getNome() + "\n";
 				}
 			}
 		}
