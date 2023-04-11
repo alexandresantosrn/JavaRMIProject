@@ -4,6 +4,7 @@ public class Roupa {
 	String nome;
 	String estilo;
 	float preco;
+	boolean alugado;
 
 	public Roupa(String nome, String estilo, float preco) {
 		super();
@@ -34,6 +35,14 @@ public class Roupa {
 
 	public void setPreco(float preco) {
 		this.preco = preco;
+	}
+
+	public boolean isAlugado() {
+		return alugado;
+	}
+
+	public void setAlugado(boolean alugado) {
+		this.alugado = alugado;
 	}
 
 }

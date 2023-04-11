@@ -49,4 +49,12 @@ public class BDRepository {
 		this.lojas = lojas;
 	}
 
+	public ArrayList<Aluguel> getAlugueis() {
+		return alugueis;
+	}
+
+	public void setAlugueis(ArrayList<Aluguel> alugueis) {
+		this.alugueis = alugueis;
+	}
+
 }
