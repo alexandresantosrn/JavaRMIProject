@@ -1,10 +1,17 @@
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Aluguel {
 
 	Roupa roupa;
-	Date inicio;
-	Date fim;
+	LocalDate inicio;
+	LocalDate fim;
+
+	public Aluguel(Roupa roupa, LocalDate inicio, LocalDate fim) {
+		super();
+		this.roupa = roupa;
+		this.inicio = inicio;
+		this.fim = fim;
+	}
 
 	public Roupa getRoupa() {
 		return roupa;
@@ -14,19 +21,19 @@ public class Aluguel {
 		this.roupa = roupa;
 	}
 
-	public Date getInicio() {
+	public LocalDate getInicio() {
 		return inicio;
 	}
 
-	public void setInicio(Date inicio) {
+	public void setInicio(LocalDate inicio) {
 		this.inicio = inicio;
 	}
 
-	public Date getFim() {
+	public LocalDate getFim() {
 		return fim;
 	}
 
-	public void setFim(Date fim) {
+	public void setFim(LocalDate fim) {
 		this.fim = fim;
 	}
 

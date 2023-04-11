@@ -14,11 +14,11 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 
 	@Override
 	public String findRoupasDisponiveis(String estilo, LocalDate inicio, LocalDate fim) throws RemoteException {
-		String msg = carregarItens(estilo);
+		String msg = carregarItens(estilo, inicio, fim);
 		return msg;
 	}
 
-	public String carregarItens(String estilo) {
+	public String carregarItens(String estilo, LocalDate inicio, LocalDate fim) {
 
 		BDRepository rp = new BDRepository();
 
@@ -37,6 +37,14 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 		Roupa roupa7 = new Roupa("Terno completo", "Festa", 100);
 		Roupa roupa8 = new Roupa("Vestido para noiva", "Festa", 200);
 		Roupa roupa9 = new Roupa("Smoking tradicional", "Festa", 150);
+
+		// Criando localdates para aluguéis
+		LocalDate localDate1 = LocalDate.of(2023, 03, 01);
+		LocalDate localDate2 = LocalDate.of(2023, 03, 15);
+
+		// Registrando aluguéis
+		Aluguel aluguel1 = new Aluguel(roupa1, localDate1, localDate2);
+		Aluguel aluguel2 = new Aluguel(roupa2, localDate1, localDate2);
 
 		// Adicionando roupas as lojas
 		loja1.adicionarRoupa(roupa1);
@@ -65,6 +73,10 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 		rp.adicionarLoja(loja2);
 		rp.adicionarLoja(loja3);
 
+		// Adicionando aluguéis ao repositório
+		rp.adicionarAluguel(aluguel1);
+		rp.adicionarAluguel(aluguel2);
+
 		ArrayList<Roupa> roupas = new ArrayList<>();
 		roupas = rp.retornarRoupasByEstilo(estilo);
 
@@ -77,7 +89,7 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 			for (Roupa roupa : roupas) {
 				if (loja.checkRoupaEmLoja(roupa)) {
 					msg = msg + "Produto: " + roupa.getNome() + " de: " + roupa.getPreco()
-							+ " reais, localizado na loja: " + loja.getNome() + "."+"\n";
+							+ " reais, localizado na loja: " + loja.getNome() + "." + "\n";
 				}
 			}
 		}
