@@ -2,7 +2,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
-import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main {
@@ -12,7 +13,8 @@ public class Main {
 		// Registry registry = LocateRegistry.getRegistry("localhost");
 		Registry registry = LocateRegistry.getRegistry("192.168.2.115");
 		AluguelRoupasService client = (AluguelRoupasService) registry.lookup("Roupas");
-
+		LocalDate start, end;
+		
 		int option = 100;
 		String inicio, fim, saida;
 
@@ -32,21 +34,27 @@ public class Main {
 				case 1:
 					inicio = carregarQuestoes("início");
 					fim = carregarQuestoes("fim");
-					saida = client.findRoupasDisponiveis("Esportivo", inicio, fim);
+					start = LocalDate.parse(inicio, DateTimeFormatter.ofPattern("dd/MM/yyyy"));	
+					end = LocalDate.parse(fim, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+					saida = client.findRoupasDisponiveis("Esportivo", start, end);
 					System.out.println(saida);
 					break;
 
 				case 2:
 					inicio = carregarQuestoes("início");
 					fim = carregarQuestoes("fim");
-					saida = client.findRoupasDisponiveis("Tradicional", inicio, fim);
+					start = LocalDate.parse(inicio, DateTimeFormatter.ofPattern("dd/MM/yyyy"));	
+					end = LocalDate.parse(fim, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+					saida = client.findRoupasDisponiveis("Tradicional", start, end);
 					System.out.println(saida);
 					break;
 
 				case 3:
 					inicio = carregarQuestoes("início");
 					fim = carregarQuestoes("fim");
-					saida = client.findRoupasDisponiveis("Festa", inicio, fim);
+					start = LocalDate.parse(inicio, DateTimeFormatter.ofPattern("dd/MM/yyyy"));	
+					end = LocalDate.parse(fim, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+					saida = client.findRoupasDisponiveis("Festa", start, end);
 					System.out.println(saida);
 					break;
 
@@ -62,7 +70,7 @@ public class Main {
 	public static String carregarQuestoes(String tipo) {
 		Scanner in2 = new Scanner(System.in);
 		String date="";
-		System.out.print("Informe a data " + tipo + " para o aluguel: ");
+		System.out.print("Informe a data " + tipo + " para o aluguel - (Formato: DD/MM/AAAA): ");
 		date = in2.nextLine();		
 		return date;
 	}
