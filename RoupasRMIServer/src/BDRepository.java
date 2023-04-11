@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class RepositoryRoupas {
+public class BDRepository {
 	
 	public ArrayList<Roupa> roupas = new ArrayList<>();
 	public ArrayList<Loja> lojas = new ArrayList<>();
