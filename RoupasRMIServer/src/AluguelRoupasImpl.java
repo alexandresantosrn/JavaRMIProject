@@ -1,6 +1,7 @@
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRoupasService {
@@ -85,6 +86,11 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 		ArrayList<Aluguel> alugueis = new ArrayList<>();
 		alugueis = rp.getAlugueis();
 
+		long dias = ChronoUnit.DAYS.between(fim, inicio);
+
+		if (dias == 0)
+			dias = 1;
+
 		// Percorrendo as listas para identificar as roupas alugadas.
 		for (Aluguel aluguel : alugueis) {
 			for (Roupa roupa : roupas) {
@@ -104,7 +110,8 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 				if (loja.checkRoupaEmLoja(roupa)) {
 					if (!roupa.isAlugado()) {
 						msg = msg + "Produto: " + roupa.getNome() + " de preço (diária): " + roupa.getPreco()
-								+ " reais, localizado na loja: " + loja.getNome() + "." + "\n";
+								+ " reais, localizado na loja: " + loja.getNome() + ". (Valor total: R$"
+								+ (roupa.getPreco() * dias) + ")" + " \n";
 					} else {
 						msg = msg + "Produto: " + roupa.getNome() + " de preço (diária): " + roupa.getPreco()
 								+ " reais, localizado na loja: " + loja.getNome()
