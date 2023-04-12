@@ -86,7 +86,7 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 		ArrayList<Aluguel> alugueis = new ArrayList<>();
 		alugueis = rp.getAlugueis();
 
-		long dias = ChronoUnit.DAYS.between(fim, inicio);
+		long dias = ChronoUnit.DAYS.between(inicio, fim);
 
 		if (dias == 0)
 			dias = 1;
@@ -110,7 +110,7 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 				if (loja.checkRoupaEmLoja(roupa)) {
 					if (!roupa.isAlugado()) {
 						msg = msg + "Produto: " + roupa.getNome() + " de preço (diária): " + roupa.getPreco()
-								+ " reais, localizado na loja: " + loja.getNome() + ". (Valor total: R$"
+								+ " reais, localizado na loja: " + loja.getNome() + ". (Valor total da locação: R$"
 								+ (roupa.getPreco() * dias) + ")" + " \n";
 					} else {
 						msg = msg + "Produto: " + roupa.getNome() + " de preço (diária): " + roupa.getPreco()
