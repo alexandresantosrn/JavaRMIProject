@@ -103,7 +103,7 @@ public class AluguelRoupasImpl extends UnicastRemoteObject implements AluguelRou
 			}
 		}
 
-		String msg = "Seguem as roupas encontradas para o estilo selecionado: " + estilo + ". \n";
+		String msg = "\n Seguem as roupas encontradas para o estilo selecionado: " + estilo + ". \n";
 
 		for (Loja loja : lojas) {
 			for (Roupa roupa : roupas) {
