@@ -33,28 +33,12 @@ public class BDRepository {
 		return roupasReturn;
 	}
 
-	public ArrayList<Roupa> getRoupas() {
-		return roupas;
-	}
-
-	public void setRoupas(ArrayList<Roupa> roupas) {
-		this.roupas = roupas;
-	}
-
 	public ArrayList<Loja> getLojas() {
 		return lojas;
 	}
 
-	public void setLojas(ArrayList<Loja> lojas) {
-		this.lojas = lojas;
-	}
-
 	public ArrayList<Aluguel> getAlugueis() {
 		return alugueis;
-	}
-
-	public void setAlugueis(ArrayList<Aluguel> alugueis) {
-		this.alugueis = alugueis;
 	}
 
 }
