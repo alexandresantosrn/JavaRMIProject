@@ -15,15 +15,15 @@ public class Roupa {
 
 	public String getNome() {
 		return nome;
-	}	
+	}
 
 	public String getEstilo() {
 		return estilo;
-	}	
+	}
 
 	public float getPreco() {
 		return preco;
-	}	
+	}
 
 	public boolean isAlugado() {
 		return alugado;

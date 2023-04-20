@@ -12,7 +12,7 @@ public class Loja {
 
 	public String getNome() {
 		return nome;
-	}		
+	}
 
 	public void adicionarRoupa(Roupa roupa) {
 		roupas.add(roupa);
@@ -21,11 +21,11 @@ public class Loja {
 	public boolean checkRoupaEmLoja(Roupa roupa) {
 
 		boolean b = false;
-		
+
 		if (roupas.contains(roupa)) {
 			b = true;
 		}
-		
+
 		return b;
 	}
 
